@@ -1,47 +1,47 @@
-Here is the README file in Markdown format:
+# Shades
 
-# Color Shade Generator
-
-A Python script that generates shades of a given color and saves them to an image and a markdown file.
+A Python script that generates shades of a given hex color value and saves them to an image and a markdown file.
 
 ## Usage
 
-To use the script, simply run it from the command line and provide the hex code of the color you want to generate shades for. You can also specify custom shades using the `-s` option.
+To use the script, simply run it from the command line and provide the hex code of the color you want to generate shades for.
 
 ```bash
-python color_shade_generator.py <hex_color> [-s <shades>]
-```
+$ python shades.py
+usage: shades.py [-h] [-c COLORS [COLORS ...]] [-s SHADES] [-d DIRECTORY]
 
-## Options
+Generate shades of a color from your hexcodes in markdown and PNG format.
 
-* `-s <shades>`: Specify custom shades as a comma-separated list of percentages (e.g. `10,30,50,70,90`).
-* `-d`: Use default shades (20% increments) instead of custom shades.
-
-## Example
-
-To generate shades of the color `#FF79C6` using the default shades, run the following command:
-
-```bash
-python color_shade_generator.py "#FF79C6" -d
-```
-
-To generate shades of the color `#FF79C6` using custom shades, run the following command:
-
-```bash
-python color_shade_generator.py "#FF79C6" -s "10,30,50,70,90"
+options:
+  -h, --help            show this help message and exit
+  -c COLORS [COLORS ...], --colors COLORS [COLORS ...]
+                        One or more hex colors to generate shades for
+  -s SHADES, --shades SHADES
+                        List of shades to generate (default: 20, 40, 60, 80, 100)
+  -d DIRECTORY, --directory DIRECTORY
+                        Specify the output directory (default: current working directory)
 ```
 
 ## Output
 
-The script will generate an image file named `shades.png` and a markdown file named `shades.md` in the current working directory. The image file will contain the color swatches, and the markdown file will contain the hex codes for each shade.
+The script will generate an image file named `shades.png` and a markdown file named `shades.md` in the current working directory.
+
+You can change the names of directories and filenames if you follow the prompts.
+
+The image file will contain the color swatches and the markdown file will contain the hex codes for each shade.
+
+You can use the directory flag if you'd like to save your files somewhere specific.
 
 ## Requirements
 
 * Python 3.x
-* The `PIL` library is not actually used in this script, I apologize for the mistake earlier. The `colorsys` library is used instead.
+* Pillow
+* Colosys
+* Others
+>This version tested on Linux (Arch) 09/26/24
+
+If you test on other systems, please let me know if you have successes or issues.
 
 ## License
 
 This script is released under the MIT License. See the LICENSE file for details.
-
-Note: I removed the Pillow library from the requirements section, as it is not actually used in the script.

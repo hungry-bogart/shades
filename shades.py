@@ -116,7 +116,7 @@ def generate_shades(hex_color, shades, directory=None):
 def main():
     parser = argparse.ArgumentParser(description="Generate shades of a color from your hexcodes in markdown and PNG format.")
     parser.add_argument("-c", "--colors", nargs="+", help="One or more hex colors to generate shades for")
-    parser.add_argument("-s", "--shades", help="List of shades to generate (default: 20, 40, 60, 80, 100)", default="20,40,60,80,100")
+    parser.add_argument("-s", "--shades", help="List of shades to generate (comma-separated values: 20,40,60,80,100)", default="20,40,60,80,100")
     parser.add_argument("-d", "--directory", help="Specify the output directory (default: current working directory)", default=os.getcwd())
     args = parser.parse_args()
 
