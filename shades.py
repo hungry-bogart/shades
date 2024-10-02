@@ -3,6 +3,8 @@ import argparse
 import os
 import sys
 from PIL import Image, ImageDraw, ImageFont
+from rich.console import Console
+from rich.table import Table
 
 def hex_to_rgb(hex_color):
     """Converts a hex color to RGB."""
@@ -46,10 +48,10 @@ def hsl_to_hex(h, s, l):
     r, g, b = colorsys.hls_to_rgb(h / 360, l, s)
     return "#{:02X}{:02X}{:02X}".format(int(r * 255), int(g * 255), int(b * 255))
 
-def print_swatch(color, name=""):
-    """Prints a color swatch."""
+def print_swatch(color, name=None):
+    """Returns a string representing a color swatch."""
     r, g, b = hex_to_rgb(color)
-    print(f"\033[38;2;{int(r*255)};{int(g*255)};{int(b*255)}m{name}\033[0m")
+    return f"<span style='background-color:#{color}; width: 20px; height: 20px; display: inline-block;'></span>"
 
 def generate_shades(hex_color, shades, directory=None):
     """Generates shades of a color."""
@@ -59,7 +61,10 @@ def generate_shades(hex_color, shades, directory=None):
         print("Invalid hex color")
         return
 
-    print_swatch(hex_color, f"Original color ({hex_color})")
+    table = Table(show_header=True, header_style="purple", title_style="bold green", title="Shades of " + hex_color, style="bold magenta")
+    table.add_column("Value", style="cyan")
+    table.add_column("Hex Code")
+    table.add_column("Color")
 
     image_width = len(shades) * 150
     image_height = 100
@@ -74,6 +79,8 @@ def generate_shades(hex_color, shades, directory=None):
             shade_factor = 1 - (shade / 100)
             new_l = l * shade_factor
             new_hex_color = hsl_to_hex(h, s, new_l)
+            table.add_row(str(shade) + "%", new_hex_color, f"[{new_hex_color}][b]{new_hex_color}[/b]")            
+
             draw.rectangle((i * 150, 0, (i + 1) * 150, 50), fill=new_hex_color)
             draw.text((i * 150 + 10, 60), new_hex_color, font=font, fill=(0, 0, 0))
             markdown_text += f"* {shade}% shade: {new_hex_color}\n"
@@ -81,6 +88,9 @@ def generate_shades(hex_color, shades, directory=None):
         except ValueError:
             print(f"Invalid shade value: {shade}")
             continue
+
+    console = Console()
+    console.print(table)
 
     if directory:
         os.makedirs(directory, exist_ok=True)
@@ -112,7 +122,8 @@ def generate_shades(hex_color, shades, directory=None):
         print("Permission denied. Unable to save files.")
         return
 
-    print(f"Files saved as {image_path} and {markdown_path}")
+    console.print(f"Files saved as {image_path} and {markdown_path} :computer:")
+
 def main():
     parser = argparse.ArgumentParser(description="Generate shades of a color from your hexcodes in markdown and PNG format.")
     parser.add_argument("-c", "--colors", nargs="+", help="One or more hex colors to generate shades for")
@@ -146,10 +157,3 @@ def main():
 if __name__ == "__main__":
     main()
     
-
-
-
-
-
-
-
