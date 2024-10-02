@@ -37,11 +37,57 @@ You can use the directory flag if you'd like to save your files somewhere specif
 * Python 3.x
 * Rich
 * Pillow
+
+## Installation
+
+To install the script, run the following command:
+
+This will install on your system directly into the current directory.
+
+Clone the repository:
+
+```git clone https://github.com/hungry-bogart/shades.git```
+
+Enter the directory:
+
+```cd shades```
+
+Install the requirements:
+
+```pip -r requirements.txt```
+
+## Using a Virtual Environment (preferred)
+
+To use the script in a virtual environment, run the following command:
+Change "myenv" to the name of your virtual environment. It could be something like shades-env.
+
+Create a virtual environment:
+```python -m venv myenv```
+
+Activate the virtual environment:
+```source myenv/bin/activate```
+
+Install the requirements:
+```pip install -r requirements.txt```
+
+---
+
+### Uninstall the script
+
+>Clean up the virtual environment: This is one benefit of virtual environments. You don't have to worry about conflicting packages. Also, if you just want to try the script, it's easy to remove a virtual environment when you are done.
+
+**Deactivate the virtual environment**
+```deactivate```
+
+Remove the virtual environment:
+```rm -rf myenv```
+
+Done!
   
 >This version tested on Linux (Arch) 09/26/24
 
 If you test on other systems, please let me know if you have successes or issues.
 
-## License
+### License
 
 This script is released under the MIT License. See the LICENSE file for details.
