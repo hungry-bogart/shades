@@ -35,9 +35,7 @@ You can use the directory flag if you'd like to save your files somewhere specif
 ## Requirements
 
 * Python 3.x
-* Pillow
-* Colosys
-* Others
+* Rich 13.0.0+
 >This version tested on Linux (Arch) 09/26/24
 
 If you test on other systems, please let me know if you have successes or issues.
