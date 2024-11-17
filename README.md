@@ -1,4 +1,4 @@
-Shades
+# Shades
 
 A Python script that generates shades of a given hex color value and saves them to an image and a markdown file.
 
