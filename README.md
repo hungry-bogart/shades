@@ -91,3 +91,5 @@ If you test on other systems, please let me know if you have successes or issues
 ### License
 
 This script is released under the MIT License. See the LICENSE file for details.
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/A0A016A6A5)
