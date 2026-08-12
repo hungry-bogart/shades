@@ -54,7 +54,7 @@ Enter the directory:
 
 Install the requirements:
 
-```pip -r requirements.txt```
+```pip install -r requirements.txt```
 
 ## Using a Virtual Environment (preferred)
 
