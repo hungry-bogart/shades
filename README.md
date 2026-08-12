@@ -70,6 +70,8 @@ Activate the virtual environment:
 Install the requirements:
 ```pip install -r requirements.txt```
 
+Done.
+
 ---
 
 ### Uninstall the script
